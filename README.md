@@ -29,3 +29,5 @@
 - Все файлы с расширением `.terraformrc`, а также `terraform.rc`
 
 To be continue...
+
+Commit from IDE!
