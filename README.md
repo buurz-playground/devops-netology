@@ -1,1 +1,1 @@
-# devops-netology
+### Devops netology course
