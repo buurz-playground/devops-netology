@@ -17,6 +17,31 @@
                         └─4919 /usr/local/bin/node_exporter
 
 
+    **Unit file**
+
+            [Unit]
+            Description=Prometheus Node Exporter
+
+            [Service]
+            Restart=always
+            User=node_exporter
+            Group=node_exporter
+            EnvironmentFile=/opt/node_exporter-1.2.2.linux-386/node_exporter.env
+            ExecStart=/usr/local/bin/node_exporter $EXTRA_OPTS
+            StandardOutput=file:/var/log/node_explorer.log
+            StandardError=file:/var/log/node_explorer.log
+
+            [Install]
+            WantedBy=multi-user.target
+
+
+    **Предусмотрите возможность добавления опций к запускаемому процессу через внешний файл**
+
+            Опции указываем в файле /opt/node_exporter-1.2.2.linux-386/node_exporter.env, в переменной EXTRA_OPTS
+
+            EXTRA_OPTS="--log.level=info"
+
+
 1. Ознакомьтесь с опциями node_exporter и выводом `/metrics` по-умолчанию. Приведите несколько опций, которые вы бы выбрали для базового мониторинга хоста по CPU, памяти, диску и сети.
 
         node_cpu_seconds_total
