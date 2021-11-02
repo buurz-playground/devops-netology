@@ -14,9 +14,16 @@
 	* Как получить для переменной c значение 3?
 
 ---
-    при попытеке присвоения будет ошибка типов в сложении
-    c = (a + int(b)) * int(b) * int(b)
-    c = a + int(b)
+**Ответ:**
+
+*Какое значение будет присвоено переменной c?*
+- при попытке присвоения будет ошибка типов в сложении
+
+*Как получить для переменной c значение 12?*
+- c = (a + int(b)) * int(b) * int(b)
+
+*Как получить для переменной c значение 3?*
+- c = a + int(b)
 
 ---
 
@@ -38,6 +45,7 @@
 
 	```
 ---
+**Ответ:**
 
 ```python
     #!/usr/bin/env python3
@@ -46,7 +54,7 @@
     import re
     from colorama import Fore, Style
 
-    path = "~/projects/devops-netology"
+    path = "~/netology/sysadm-homeworks"
     resolved_path = os.path.expanduser(os.path.expandvars(path))
 
     bash_command = [f"cd {resolved_path}", "git status -s"]
@@ -68,6 +76,7 @@
 3. Доработать скрипт выше так, чтобы он мог проверять не только локальный репозиторий в текущей директории, а также умел воспринимать путь к репозиторию, который мы передаём как входной параметр. Мы точно знаем, что начальство коварное и будет проверять работу этого скрипта в директориях, которые не являются локальными репозиториями.
 
 ---
+**Ответ:**
 ```python
 #!/usr/bin/env python3
 
@@ -77,14 +86,18 @@ import sys
 from colorama import Fore, Style
 import subprocess
 
-path = sys.argv[1]
-
-isExist = os.path.isdir(path)
-if not isExist:
-    print(f"Such path is not exists or not a directory: {path}")
-    exit()
+if len(sys.argv) > 1:
+    path = sys.argv[1]
+else:
+    path = "~/netology/sysadm-homeworks"
 
 resolved_path = os.path.expanduser(os.path.expandvars(path))
+
+isExist = os.path.isdir(resolved_path)
+if not isExist:
+    print(f"Such path is not exists or not a directory: {resolved_path}")
+    exit()
+
 process = subprocess.Popen(
     ["git", "status", "-s"],
     cwd=resolved_path,
@@ -113,6 +126,8 @@ print(Style.RESET_ALL)
 4. Наша команда разрабатывает несколько веб-сервисов, доступных по http. Мы точно знаем, что на их стенде нет никакой балансировки, кластеризации, за DNS прячется конкретный IP сервера, где установлен сервис. Проблема в том, что отдел, занимающийся нашей инфраструктурой очень часто меняет нам сервера, поэтому IP меняются примерно раз в неделю, при этом сервисы сохраняют за собой DNS имена. Это бы совсем никого не беспокоило, если бы несколько раз сервера не уезжали в такой сегмент сети нашей компании, который недоступен для разработчиков. Мы хотим написать скрипт, который опрашивает веб-сервисы, получает их IP, выводит информацию в стандартный вывод в виде: <URL сервиса> - <его IP>. Также, должна быть реализована возможность проверки текущего IP сервиса c его IP из предыдущей проверки. Если проверка будет провалена - оповестить об этом в стандартный вывод сообщением: [ERROR] <URL сервиса> IP mismatch: <старый IP> <Новый IP>. Будем считать, что наша разработка реализовала сервисы: drive.google.com, mail.google.com, google.com.
 
 ---
+**Ответ:**
+
 ```python
 import socket
 import time
