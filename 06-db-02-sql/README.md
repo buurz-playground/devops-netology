@@ -7,6 +7,28 @@
 
 Приведите получившуюся команду или docker-compose манифест.
 
+```
+version: '3.9'
+services:
+  db:
+    container_name: 06-db-02-sql_db
+    image: postgres:13.3-alpine
+    volumes:
+      - db_test:/var/lib/postgresql/data
+      - db_test_backup:/tmp/db_backup
+    ports:
+      - 5432:5432
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=db_test
+
+volumes:
+  db_test:
+  db_test_backup:
+```
+
 ## Задача 2
 
 В БД из задачи 1:
