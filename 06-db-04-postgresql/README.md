@@ -149,11 +149,9 @@ test_database=# select * from orders_2;
 Добавил уникальные индексы на таблицы.
 
 ```
-CREATE UNIQUE INDEX CONCURRENTLY orders_1_title
-ON public.orders_1 (title);
+ALTER TABLE public.orders_1 ADD CONSTRAINT orders_1_title_unique UNIQUE (title);
 
-CREATE UNIQUE INDEX CONCURRENTLY orders_2_title
-ON public.orders_2 (title);
+ALTER TABLE public.orders_2 ADD CONSTRAINT orders_2_title_unique UNIQUE (title);
 ```
 
 ---
