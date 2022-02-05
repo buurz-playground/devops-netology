@@ -7,8 +7,8 @@
 ---
 **Ответ**
 
-
-Создать свой образ можно с помощью Packer.
+1. Создать свой образ можно с помощью Packer.
+2. [Ссылка на репо](https://github.com/buurz-playground/devops-netology/tree/master/07-terraform-02-syntax/demo)
 
 Переменные yc_cloud / yc_cloud_id был заданы через окружение.
 
