@@ -6,21 +6,22 @@
 
 ---
 
+[Ссылка на репо](https://github.com/buurz-playground/devops-netology/tree/master/terraform/demo)
+
 ![](plan.png)
 
 
 
 ```plain
-~/code/devops-netology/terraform/demo (master*) » terraform plan                                              buurz@buurz-OMEN
+~/code/devops-netology/terraform/demo (master) » terraform plan                                                                                                        buurz@buurz-OMEN
 
-Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the
-following symbols:
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
   + create
 
 Terraform will perform the following actions:
 
-  # module.feed["prod"].yandex_compute_instance.instance[0] will be created
-  + resource "yandex_compute_instance" "instance" {
+  # module.feed["prod"].yandex_compute_instance.feed[0] will be created
+  + resource "yandex_compute_instance" "feed" {
       + created_at                = (known after apply)
       + description               = "Feed"
       + folder_id                 = (known after apply)
@@ -85,8 +86,8 @@ Terraform will perform the following actions:
         }
     }
 
-  # module.feed["prod"].yandex_compute_instance.instance[1] will be created
-  + resource "yandex_compute_instance" "instance" {
+  # module.feed["prod"].yandex_compute_instance.feed[1] will be created
+  + resource "yandex_compute_instance" "feed" {
       + created_at                = (known after apply)
       + description               = "Feed"
       + folder_id                 = (known after apply)
@@ -284,9 +285,6 @@ Terraform will perform the following actions:
     }
 
 Plan: 4 to add, 0 to change, 0 to destroy.
-
-──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-
 
 ```
 ---
